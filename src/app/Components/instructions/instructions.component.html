@@ -1,0 +1,99 @@
+<!-- component -->
+<!DOCTYPE html>
+<html lang="id-ID">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!---
+	You may need jQuery
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	--->
+    <style>
+      /*
+		You may need this for responsive background
+		header {
+			background: url('bg-425.jpg');
+		}
+
+		@media only screen and (min-width:640px) {
+			header {
+				background: url('bg-640.jpg');
+			}
+		}
+
+		@media only screen and (min-width:768px) {
+			header {
+				background: url('bg-768.jpg');
+			}
+		}
+
+		@media only screen and (min-width:1024px) {
+			header {
+				background: url('bg-1024.jpg');
+			}
+		}
+
+		@media only screen and (min-width:1025px) {
+			header {
+				background: url('bg-max.jpg');
+			}
+		} */
+      /* Default background by https://www.pexels.com/@knownasovan */
+      header {
+        background: url("https://images.adsttc.com/media/images/5f77/370a/63c0/17ae/2200/0953/medium_jpg/Avola.jpg");
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      id="up"
+      class="bg-center bg-fixed bg-no-repeat bg-cover h-screen relative"
+    >
+      <!-- Overlay Background + Center Control -->
+      <div
+        class="h-screen bg-opacity-50 bg-black flex items-center justify-center"
+        style="background: rgba(0, 0, 0, 0.5)"
+      >
+        <div class="mx-2 text-center">
+          <h1
+            class="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl"
+          >
+            <span class="text-white">Right</span> Place To
+
+            <h3 class="text-white">{{ totalDistance }} - Okay</h3>
+          </h1>
+
+          <h2
+            class="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight"
+          >
+            Get a <span class="text-white">Better</span>
+          </h2>
+          <div class="inline-flex">
+            <!-- <form [formGroup]="productForm" (ngSubmit)="onSubmit()">   -->
+
+            <form class="space-y-2">
+              <p>
+                <label for="name">Product Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  formControlName="name"
+                  class="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </p>
+
+              <button
+                type="submit"
+                class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
