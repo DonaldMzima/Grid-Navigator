@@ -4,7 +4,7 @@
 
 This project solves a programming challenge from One Digital Media. The task involves navigating a grid of city blocks based on a set of instructions and calculating the total distance from the starting point to the destination. This solution uses React with Next.js, TypeScript, and Tailwind CSS to create a functional UI that includes an input form and a submit button.
 
-![Preview Image](public/path-to-your-image.png)
+![Preview Image](public/images/UI.png)
 
 ## Explanation of the Logic
 
@@ -19,12 +19,6 @@ Here is a simple way to understand how it works:
 5. **Distance Calculation**: The total distance is the number of blocks you are away from the starting point, measured by how far you moved horizontally (east-west) and vertically (north-south).
 
 ## Project Structure
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
 
 ```bash
 npm run dev
