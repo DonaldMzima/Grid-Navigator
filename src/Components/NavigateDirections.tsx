@@ -31,7 +31,7 @@ const HeaderOverlay = styled.div`
 const HeaderContent = styled.div`
   margin: 0 0.5rem;
   text-align: center;
-  space-y: 2.5rem;
+  space-y: 8px;
 `;
 
 const Title = styled.h1`
@@ -60,11 +60,11 @@ const Subtitle = styled.h2`
 `;
 
 const Form = styled.form`
-  space-y: 1rem;
+  space-y: 10rem;
 `;
 
 const InputWrapper = styled.p`
-  space-y: 1rem;
+  space-y: 8px;
 `;
 
 const Input = styled.input`
@@ -76,7 +76,7 @@ const Input = styled.input`
   padding: 0.75rem;
   font-family: sans-serif;
   font-size: 0.875rem;
-  color: #4a5568;
+  color: #e5e5e5;
   outline: none;
   transition: all 0.3s;
   &::placeholder {
@@ -85,6 +85,12 @@ const Input = styled.input`
   &:focus {
     border: 2px solid #d53f8c;
   }
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background-color: #cbd5e0;
+  margin: 1rem 0;
 `;
 
 const Button = styled.button`
@@ -175,6 +181,7 @@ const NavigateDirections: React.FC = () => {
                   placeholder="Enter instructions separated by comma (e.g., L5, R10, L3)"
                 />
               </InputWrapper>
+              <Divider />
               <Button type="submit">Calculate Distance</Button>
               {totalDistance > 0 && (
                 <p>The total number of blocks away is: {totalDistance}</p>
