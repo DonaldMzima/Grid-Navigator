@@ -2,6 +2,128 @@
 import React, { useState, useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import { navigate } from "@/utils/core/direction";
+import styled from "styled-components";
+
+// Styled Components
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.header`
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  flex-grow: 1;
+`;
+
+const HeaderOverlay = styled.div`
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const HeaderContent = styled.div`
+  margin: 0 0.5rem;
+  text-align: center;
+  space-y: 2.5rem;
+`;
+
+const Title = styled.h1`
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.5rem;
+  @media (min-width: 640px) {
+    font-size: 3rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+`;
+
+const Subtitle = styled.h2`
+  color: #e5e5e5;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.2;
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+const Form = styled.form`
+  space-y: 1rem;
+`;
+
+const InputWrapper = styled.p`
+  space-y: 1rem;
+`;
+
+const Input = styled.input`
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #cbd5e0;
+  background: transparent;
+  padding: 0.75rem;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  color: #4a5568;
+  outline: none;
+  transition: all 0.3s;
+  &::placeholder {
+    color: #a0aec0;
+  }
+  &:focus {
+    border: 2px solid #d53f8c;
+  }
+`;
+
+const Button = styled.button`
+  width: 100%;
+  outline: none;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.375rem;
+  background-color: #805ad5;
+  &:hover {
+    background-color: #6b46c1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const Footer = styled.footer`
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: auto;
+`;
+
+const FooterContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const GitHubLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+`;
+
+const Icon = styled(FaGithub)`
+  margin-right: 0.5rem;
+`;
 
 const NavigateDirections: React.FC = () => {
   const [instructions, setInstructions] = useState<string>(
@@ -28,66 +150,54 @@ const NavigateDirections: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header
-        id="up"
-        className="bg-fixed bg-no-repeat bg-center bg-cover h-screen relative flex-grow"
-      >
-        <div className="h-screen bg-opacity-50 bg-black flex items-center justify-center">
-          <div className="mx-2 text-center space-y-10">
+    <Container>
+      <Header id="up">
+        <HeaderOverlay>
+          <HeaderContent>
             <div>
-              <h1 className="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl ">
-                <span className="text-white">One </span> Digital Media
-              </h1>
-              <h2 className="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight">
-                Programming Challenge
-              </h2>
+              <Title>
+                <span style={{ color: "#fff" }}>One </span> Digital Media
+              </Title>
+              <Subtitle>Programming Challenge</Subtitle>
             </div>
             <div className="inline-flex"></div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="space-y-4">
+            <Form onSubmit={handleSubmit}>
+              <InputWrapper>
                 <label htmlFor="instructions">
                   Enter your instructions below (e.g. "L5, R10, L3"):
                 </label>
-                <input
+                <Input
                   type="text"
                   id="instructions"
                   name="instructions"
                   value={instructions}
                   onChange={handleInputChange}
                   placeholder="Enter instructions separated by comma (e.g., L5, R10, L3)"
-                  className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 />
-              </p>
-              <button
-                type="submit"
-                className="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg"
-              >
-                Calculate Distance
-              </button>
+              </InputWrapper>
+              <Button type="submit">Calculate Distance</Button>
               {totalDistance > 0 && (
                 <p>The total number of blocks away is: {totalDistance}</p>
               )}
-            </form>
-          </div>
-        </div>
-      </header>
-      <footer className="bg-black text-white py-4 mt-auto">
-        <div className="container mx-auto text-center">
+            </Form>
+          </HeaderContent>
+        </HeaderOverlay>
+      </Header>
+      <Footer>
+        <FooterContent>
           <p className="mt-2">
             © {new Date().getFullYear()} Developed by Donald Mzima{" "}
-            <a
+            <GitHubLink
               href="https://github.com/DonaldMzima/Grid-Navigator"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-white"
             >
-              <FaGithub className="mr-2 icon-lg" />
-            </a>
+              <Icon className="icon-lg" />
+            </GitHubLink>
           </p>
-        </div>
-      </footer>
-    </div>
+        </FooterContent>
+      </Footer>
+    </Container>
   );
 };
 
