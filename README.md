@@ -1,3 +1,25 @@
+# One Digital Media Programming Challenge
+
+## Overview
+
+This project solves a programming challenge from One Digital Media. The task involves navigating a grid of city blocks based on a set of instructions and calculating the total distance from the starting point to the destination. This solution uses React with Next.js, TypeScript, and Tailwind CSS to create a functional UI that includes an input form and a submit button.
+
+![Preview Image](public/path-to-your-image.png)
+
+## Explanation of the Logic
+
+Imagine you are a robot starting at the center of a grid, facing north. You are given a list of instructions to follow. Each instruction tells you to turn either left (L) or right (R) and then move forward a certain number of blocks. Our job is to find out how far you are from the starting point after following all the instructions.
+
+Here is a simple way to understand how it works:
+
+1. **Starting Point**: You begin at the center (0, 0) of the grid, facing north.
+2. **Instructions**: Each instruction tells you to turn left or right and then move forward. For example, "L2" means turn left and move forward 2 blocks.
+3. **Turning**: When you turn left or right, your direction changes. If you are facing north and turn left, you will face west. If you turn right, you will face east.
+4. **Moving**: After turning, you move forward the specified number of blocks in the new direction.
+5. **Distance Calculation**: The total distance is the number of blocks you are away from the starting point, measured by how far you moved horizontally (east-west) and vertically (north-south).
+
+## Project Structure
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
