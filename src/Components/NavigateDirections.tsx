@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
-import { FaGithub } from "react-icons/fa"; // Import the GitHub icon from react-icons
+import { FaGithub } from "react-icons/fa";
 import { navigate } from "@/utils/core/direction";
 
 const NavigateDirections: React.FC = () => {
