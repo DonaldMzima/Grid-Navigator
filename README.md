@@ -18,16 +18,68 @@ Here is a simple way to understand how it works:
 4. **Moving**: After turning, you move forward the specified number of blocks in the new direction.
 5. **Distance Calculation**: The total distance is the number of blocks you are away from the starting point, measured by how far you moved horizontally (east-west) and vertically (north-south).
 
+## Code Explanation
+
+1. **State Management**:Uses useState to manage the instructions input by the user and the total distance calculated.
+2. **Effect Hook**:Uses useEffect to calculate the total distance whenever the instructions change.
+3. **Event Handlers**:
+
+- `handleInputChange`:Updates the instructions state when the input changes.
+- `handleSubmit`:Prevents the default form submission and alerts the total distance.
+
+1. **Navigation Logic**:
+
+- `Direction Mapping`: Maps each direction (N, E, S, W) to its corresponding movement vector.
+- `Update Direction`: Determines the new direction based on the current direction and the turn (left or right).
+- `Move`: Updates the position based on the current direction and the number of steps.
+
+- `Navigate`: Processes all instructions and calculates the total distance from the starting point.
+
+## Example Calculation
+
+`Consider the instructions`: ["L1", "R3", "R1", "L5"]
+
+1. Start at (0, 0), facing north.
+2. "L1": Turn left to face west and move 1 block to (-1, 0).
+3. "R3": Turn right to face north and move 3 blocks to (-1, 3).
+4. "R1": Turn right to face east and move 1 block to (0, 3).
+5. "L5": Turn left to face north and move 5 blocks to (0, 8).
+
+The total distance from the starting point (0, 0) is |0| + |8| = 8 blocks.
+
+## Conclusion
+
+This project provides a simple and interactive way to solve the given challenge. By following the instructions, you can calculate how many blocks away you are from the starting point after navigating the grid.
+
+Feel free to play around with the instructions and see how the distance changes!
+
 ## Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── components
+│ └── NavigateDirections.tsx
+├── pages
+│ └── _app.tsx
+│ └── _document_.tsx
+│ └── index.tsx
+└── api
+├── public
+│ └── UI.png
+├── styles
+│ └── globals.css
+├── utils
+└── core
+│ └── direction.tsx
+├── .eslintrc.json
+├── .gitignore
+├── next-env.d.ts
+├── next.config.js
+├── package.json
+├── postcss.config.mjs.json
+├── README.md
+├── tailwind.config.js
+├── tsconfig.json
+└── yarn.lock
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -54,3 +106,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Contact
+
+- Email: (<donaldmzima8@gmail.com>)
