@@ -1,6 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { navigate } from "@/utils/core/direction";
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
+import { FaGithub } from "react-icons/fa"; // Import the GitHub icon from react-icons
+import { navigate } from "@/utils/core/direction";
 
 const NavigateDirections: React.FC = () => {
   const [instructions, setInstructions] = useState<string>(
@@ -27,45 +28,66 @@ const NavigateDirections: React.FC = () => {
   };
 
   return (
-    <header
-      id="up"
-      className=" bg-fixed bg-no-repeat bg-center bg-cover h-screen relative"
-    >
-      <div className="h-screen bg-opacity-50 bg-black flex items-center justify-center">
-        <div className="mx-2 text-center">
-          <h1 className="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl">
-            <span className="text-white">One </span> Digital Media
-          </h1>
-          <h2 className="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight">
-            Programming Challenge
-          </h2>
-          <div className="inline-flex"></div>
-          <form onSubmit={handleSubmit} className="space-y-2">
-            <p>
-              <label htmlFor="instructions">Insert Instructions:</label>
-              <input
-                type="text"
-                id="instructions"
-                name="instructions"
-                value={instructions}
-                onChange={handleInputChange}
-                placeholder="Enter instructions separated by comma (e.g., L5, R10, L3)"
-                className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-              />
-            </p>
-            <button
-              type="submit"
-              className="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg"
-            >
-              Calculate Distance
-            </button>
-            {totalDistance > 0 && (
-              <p>The total number of blocks away is: {totalDistance}</p>
-            )}
-          </form>
+    <div className="min-h-screen flex flex-col">
+      <header
+        id="up"
+        className="bg-fixed bg-no-repeat bg-center bg-cover h-screen relative flex-grow"
+      >
+        <div className="h-screen bg-opacity-50 bg-black flex items-center justify-center">
+          <div className="mx-2 text-center space-y-10">
+            <div>
+              <h1 className="text-gray-100 font-extrabold text-4xl xs:text-5xl md:text-6xl ">
+                <span className="text-white">One </span> Digital Media
+              </h1>
+              <h2 className="text-gray-200 font-extrabold text-3xl xs:text-4xl md:text-5xl leading-tight">
+                Programming Challenge
+              </h2>
+            </div>
+            <div className="inline-flex"></div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <p className="space-y-4">
+                <label htmlFor="instructions">
+                  Enter your instructions below (e.g. "L5, R10, L3"):
+                </label>
+                <input
+                  type="text"
+                  id="instructions"
+                  name="instructions"
+                  value={instructions}
+                  onChange={handleInputChange}
+                  placeholder="Enter instructions separated by comma (e.g., L5, R10, L3)"
+                  className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </p>
+              <button
+                type="submit"
+                className="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg"
+              >
+                Calculate Distance
+              </button>
+              {totalDistance > 0 && (
+                <p>The total number of blocks away is: {totalDistance}</p>
+              )}
+            </form>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <footer className="bg-black text-white py-4 mt-auto">
+        <div className="container mx-auto text-center">
+          <p className="mt-2">
+            © {new Date().getFullYear()} Developed by Donald Mzima{" "}
+            <a
+              href="https://github.com/DonaldMzima/Grid-Navigator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-white"
+            >
+              <FaGithub className="mr-2 icon-lg" />
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
   );
 };
 
