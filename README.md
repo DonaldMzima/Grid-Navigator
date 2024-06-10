@@ -4,7 +4,7 @@
 
 This project solves a programming challenge from One Digital Media. The task involves navigating a grid of city blocks based on a set of instructions and calculating the total distance from the starting point to the destination. This solution uses React with Next.js, TypeScript, and Tailwind CSS to create a functional UI that includes an input form and a submit button.
 
-![Preview Image](public/images/UI.png)
+![Preview Image](public/UI.png)
 
 ## Explanation of the Logic
 

@@ -16,7 +16,7 @@
 
 //
 
-// Define types for clarity
+//  types for clarity
 type Direction = [number, number];
 type Position = {
   x: number;
@@ -58,17 +58,23 @@ export function navigate(instructions: string[]): number {
     y: 0,
     direction: directionMap["N"], // Start facing North
   };
-
   instructions.forEach((instruction) => {
+    // Extract the turn direction (left or right) from the instruction
     const turn = instruction.charAt(0);
+    // Extract the number of steps from the instruction
     const steps = parseInt(instruction.substring(1), 10);
+    // Determine the current direction based on the position object
     const currentDirectionKey = Object.keys(directionMap).find(
       (key) => directionMap[key] === position.direction
     );
+    // Calculate the new direction after the turn
     const newDirectionKey = updateDirection(currentDirectionKey!, turn);
+    // Update the position direction based on the new direction
     position.direction = directionMap[newDirectionKey];
+    // Move the position according to the direction and number of steps
     position = move(position, steps);
   });
 
+  // Calculate the total distance traveled (sum of absolute x and y coordinates)
   return Math.abs(position.x) + Math.abs(position.y);
 }
