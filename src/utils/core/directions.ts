@@ -1,3 +1,5 @@
+// utils/instructionsUtils.ts
+
 // Define types for clarity
 type Direction = [number, number];
 type Position = {
@@ -18,14 +20,17 @@ const directionMap: { [key: string]: Direction } = {
 const orderedDirections: string[] = ['N', 'E', 'S', 'W'];
 
 // Function to update the direction based on the turn
-function updateDirection(currentDirection: string, turn: string): string {
+export function updateDirection(
+  currentDirection: string,
+  turn: string
+): string {
   const currentIndex = orderedDirections.indexOf(currentDirection);
   const newIndex = (currentIndex + (turn === 'L' ? -1 : 1) + 4) % 4; // +4 to handle negative index wrap-around
   return orderedDirections[newIndex];
 }
 
 // Function to move the position according to the direction and steps
-function move(position: Position, steps: number): Position {
+export function move(position: Position, steps: number): Position {
   return {
     x: position.x + position.direction[0] * steps,
     y: position.y + position.direction[1] * steps,

@@ -72,18 +72,26 @@
           <div class="inline-flex">
             <!-- <form [formGroup]="productForm" (ngSubmit)="onSubmit()">   -->
 
-            <form class="space-y-2">
-              <p>
-                <label for="name">Product Name:</label>
+            <form class="space-y-2" (ngSubmit)="onSubmit()">
+              <!-- <p>
+                <label for="instructions">Instructions:</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  formControlName="name"
+                  id="instructions"
+                  name="instructions"
+                  formControlName="instructions"
+                  class="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </p> -->
+              <p>
+                <label for="instructions">Instructions:</label>
+                <input
+                  id="travelInstructions"
+                  type="text"
+                  [formControl]="travelInstructions"
                   class="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 />
               </p>
-
               <button
                 type="submit"
                 class="w-full focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg"
